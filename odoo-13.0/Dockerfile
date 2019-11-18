@@ -17,7 +17,18 @@ RUN mkdir -p /mnt/odoo-source/ && \
 
 RUN chown -R odoo /mnt/
 
-RUN pip3 install wdb zeep
+# Fix some python issues
+RUN pip3 install wheel
+# RUN python setup.py bdist_wheel
+
+# Main requirements
+RUN pip3 install wdb zeep websocket
+
+# POS requirements
+RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocket-client
+
+# MISC requirements
+RUN pip3 install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
 
 RUN git clone --depth=1 -b 13.0 https://github.com/it-projects-llc/pos-addons.git     /mnt/it-projects/pos-addons && chown     -R odoo /mnt/it-projects/pos-addons
 RUN git clone --depth=1 -b 13.0 https://github.com/it-projects-llc/mail-addons.git    /mnt/it-projects/mail-addons && chown    -R odoo /mnt/it-projects/mail-addons

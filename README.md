@@ -9,9 +9,9 @@ docker build ${PATH_TO_DOCKERFILE} -t ${NAME}
 Docker Run Example
 ------------------
 
-VERSION=13
-PREFIX=misc
-DB_PREFIX=misc
+VERSION=11
+PREFIX=pos
+DB_PREFIX=pos
 FOLDER=${PREFIX}-addons
 ODOO_CONTAINER=${VERSION}container-${DB_PREFIX}
 ODOO_BRANCH=${VERSION}.0

@@ -12,15 +12,22 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
-#      - ../../../itprojects/odoo-13.0/pos-addons:/mnt/1
+      - ../../../itprojects/odoo-13.0/pos-addons:/mnt/1
 #      - ../../../itprojects/odoo-13.0/odoo/addons/stock:/usr/lib/python3/dist-packages/odoo/addons/stock
 #      - ../../../itprojects/odoo-13.0/odoo/addons/product:/usr/lib/python3/dist-packages/odoo/addons/product
-#      - ../../../itprojects/odoo-13.0/odoo/addons/point_of_sale:/usr/lib/python3/dist-packages/odoo/addons/point_of_sale
+      - ../../../itprojects/odoo-13.0/odoo/addons/point_of_sale:/usr/lib/python3/dist-packages/odoo/addons/point_of_sale
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
 #    command: ['-d', '--log-handler=odoo.addons.queue_job:DEBUG', '--workers=3']
-    command: []
+    command: [
+      '-d', 'pos_tests',
+      '-u', 'base',
+      '-i', 'pos_product_available',
+      '--test-enable',
+      '--workers=0',
+      '--stop-after-init'
+    ]
 
   db:
     image: postgres:10

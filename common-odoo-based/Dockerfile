@@ -1,4 +1,4 @@
-FROM odoo:11.0
+FROM odoo:10.0
 
 USER root
 
@@ -20,17 +20,19 @@ RUN mkdir -p /mnt/1 && \
 RUN chown -R odoo /mnt/
 
 # Fix some python issues
-RUN pip3 install wheel
+RUN pip install wheel
+RUN pip install --upgrade pip
 # RUN python setup.py bdist_wheel
 
 # Main requirements
-RUN pip3 install wdb zeep websocket
+RUN pip install wdb zeep websocket
 
 # POS requirements
-RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocket-client
+RUN pip install wechatpy[cryptography] requests-mock python-alipay-sdk websocket-client
+RUN pip install simplejson
 
 # MISC requirements
-RUN pip3 install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
+RUN pip install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
 
 # Headless Browser
 RUN curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \

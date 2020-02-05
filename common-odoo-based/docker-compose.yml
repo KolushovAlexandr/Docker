@@ -2,7 +2,7 @@ version: '3.4'
 services:
   web:
     tty: true
-    image: my_odoo_11:latest
+    image: my_odoo_10:latest
     depends_on:
       - db
       - wdb
@@ -12,10 +12,11 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
-      - ../../../itprojects/odoo-11.0/pos-addons:/mnt/1
-#      - ../../../itprojects/odoo-11.0/odoo/addons/stock:/usr/lib/python3/dist-packages/odoo/addons/stock
-#      - ../../../itprojects/odoo-11.0/odoo/addons/product:/usr/lib/python3/dist-packages/odoo/addons/product
-      - ../../../itprojects/odoo-11.0/odoo/addons/point_of_sale:/usr/lib/python3/dist-packages/odoo/addons/point_of_sale
+      - ../../../itprojects/odoo-10.0/pos-addons:/mnt/1
+      - ../../../itprojects/odoo-10.0/misc-addons:/mnt/2
+      - ../../../itprojects/odoo-10.0/odoo/addons/stock:/usr/lib/python3/dist-packages/odoo/addons/stock
+      - ../../../itprojects/odoo-10.0/odoo/addons/product:/usr/lib/python3/dist-packages/odoo/addons/product
+      - ../../../itprojects/odoo-10.0/odoo/addons/point_of_sale:/usr/lib/python3/dist-packages/odoo/addons/point_of_sale
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True

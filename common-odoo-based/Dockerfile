@@ -7,6 +7,12 @@ RUN apt-get update && \
     apt-get install -y git && \
     apt-get install -y nano
 
+#   for TG.
+RUN apt-get install egenix-mx-base
+RUN pip install braintree \
+    pip install pip==19.0.1 \
+    pip install --no-cache-dir egenix-mx-base
+
 RUN mkdir -p /mnt/1 && \
     mkdir -p /mnt/2 && \
     mkdir -p /mnt/3 && \

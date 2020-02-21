@@ -13,6 +13,7 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ../../../itprojects/odoo-12.0/pos-addons:/mnt/1
+      - ../../../itprojects/odoo-12.0/ddons-enterprise12:/mnt/2
       - ../../../itprojects/odoo-12.0/odoo/addons/point_of_sale:/usr/lib/python3/dist-packages/odoo/addons/point_of_sale
       - ../../../itprojects/odoo-12.0/odoo/addons/stock:/usr/lib/python3/dist-packages/odoo/addons/stock
       - ../../../itprojects/odoo-12.0/odoo/addons/product:/usr/lib/python3/dist-packages/odoo/addons/product

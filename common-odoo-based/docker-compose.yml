@@ -12,7 +12,7 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
-      - ../../../itprojects/odoo-12.0/pos-addons:/mnt/1
+      - ../../../coopselo:/mnt/1
       - ../../../itprojects/odoo-12.0/odoo/addons/point_of_sale:/usr/lib/python3/dist-packages/odoo/addons/point_of_sale
       - ../../../itprojects/odoo-12.0/odoo/addons/stock:/usr/lib/python3/dist-packages/odoo/addons/stock
       - ../../../itprojects/odoo-12.0/odoo/addons/product:/usr/lib/python3/dist-packages/odoo/addons/product
@@ -39,3 +39,8 @@ services:
 volumes:
   odoo-web-data:
   odoo-db-data:
+#
+#pip3 install oauthlib
+#pip3 install htmlmin
+#pip3 install paramiko
+#pip3 install cssselect

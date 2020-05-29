@@ -39,8 +39,3 @@ services:
 volumes:
   odoo-web-data:
   odoo-db-data:
-#
-#pip3 install oauthlib
-#pip3 install htmlmin
-#pip3 install paramiko
-#pip3 install cssselect

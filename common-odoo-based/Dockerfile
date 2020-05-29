@@ -32,6 +32,9 @@ RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocke
 # MISC requirements
 RUN pip3 install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
 
+# kazan
+RUN pip3 install oauthlib htmlmin paramiko cssselect
+
 # Headless Browser
 RUN curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' \

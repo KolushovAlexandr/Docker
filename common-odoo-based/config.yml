@@ -1,0 +1,74 @@
+rpc_exchange: nameko-rpc
+AMQP_URI: ${AMQP_URI:pyamqp://guest:guest@127.0.0.1}
+
+SYSTEM_NAME: ${SYSTEM_NAME:asterisk}
+
+# Asterisk Manager settings
+ASTERISK_AMI_HOST: ${ASTERISK_AMI_HOST:127.0.0.1}
+ASTERISK_AMI_PORT: ${ASTERISK_AMI_PORT:5038}
+ASTERISK_AMI_USER: ${ASTERISK_AMI_USER:odoo}
+ASTERISK_AMI_PASS: ${ASTERISK_AMI_PASS:odoo}
+# Can be yes / no, AMI event name, or list of AMI events.
+ASTERISK_AMI_TRACE_EVENTS: ${ASTERISK_AMI_TRACE_EVENTS:no}
+
+# CLI
+ASTERISK_BINARY: ${ASTERISK_BINARY:/usr/sbin/asterisk}
+
+# Files
+ASTERISK_ETC_DIR: ${ASTERISK_ETC_DIR:/etc/asterisk}
+ASTERISK_DATA_DIR: ${ASTERISK_DATA_DIR:/var/lib/asterisk}
+
+# Queue log
+QUEUE_LOG_PATH: ${QUEUE_LOG_PATH:/var/log/asterisk/queue_log}
+# By default it's not enabled.
+QUEUE_LOG_ENABLED: ${QUEUE_LOG_ENABLED:no}
+
+# Security service
+# Very strict mode where any attempt to dial a not allowed destination will block.
+SECURITY_BAN_FAILED_ACL: ${SECURITY_BAN_FAILED_ACL:no}
+
+# Odoo settings
+ODOO_HOST: ${ODOO_HOST:127.0.0.1}
+ODOO_PORT: ${ODOO_PORT:8069}
+ODOO_USER: ${ODOO_USER:asterisk}
+ODOO_PASS: ${ODOO_PASS:asterisk}
+ODOO_DB: ${ODOO_DB:13_ast}
+ODOO_USE_SSL: ${ODOO_USE_SSL:no}
+ODOO_BUS_ENABLED: ${ODOO_BUS_ENABLED:yes}
+ODOO_BUS_PORT: ${ODOO_BUS_PORT:8072}
+ODOO_TRACE_AMI_EVENTS: ${ODOO_TRACE_AMI_EVENTS:no}
+ODOO_REFRESH_TOKEN_SECONDS: ${ODOO_REFRESH_TOKEN_SECONDS:600}
+# For odoo.sh as it does not support bus polling
+WEB_SERVER_ADDRESS: ${WEB_SERVER_ADDRESS:0.0.0.0:40000}
+WEB_SERVER_ENABLED: ${WEB_SERVER_ENABLED:no}
+# Set on start model / method to be called by Odoo after the Agent start.
+ODOO_ON_START_DELAY: ${ODOO_ON_START_DELAY:5}
+ODOO_ON_START_EXECUTE: ${ODOO_ON_START_EXECUTE:'asterisk_common.on_agent_start'}
+# Enable to save a call when you have one db or use db filter.
+ODOO_SINGLE_DB: ${ODOO_SINGLE_DB:no}
+
+# Static events that are loaded direclty from config file. By default get from Odoo.
+# EVENTS_MAP: ${EVENTS_MAP:events.yml}
+
+# Logger
+LOGGING:
+    version: 1
+    formatters:
+        default:
+            format: ${LOG_FORMAT:'%(asctime)s - %(name)s:%(lineno)s - %(levelname)s - %(message)s'}
+    handlers:
+        console:
+            class: logging.StreamHandler
+            formatter: default
+    root:
+        level: ${LOG_LEVEL:INFO}
+        handlers: [console]
+    loggers:
+        nameko.rpc:
+            level: ${NAMEKO_RPC_LOG_LEVEL:INFO}
+        odoorpc.rpc.jsonrpclib:
+            level: ${ODOORPC_LOG_LEVEL:INFO}
+        swaggerpy.client:
+            level: ${SWAGGERPY_LOG_LEVEL:INFO}
+        urllib3:
+            level: ${URLLIB3_LOG_LEVEL:INFO}

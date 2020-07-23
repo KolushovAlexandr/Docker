@@ -17,6 +17,7 @@ services:
       - ../../../itprojects/odoo-11.0/website-addons:/mnt/3
       - ../../../itprojects/odoo-11.0/website:/mnt/4
       - ../../../itprojects/odoo-11.0/access-addons:/mnt/5
+      - ../../../itprojects/odoo-11.0/pos-addons:/mnt/6
       - ../../../itprojects/odoo-11.0/odoo/addons/point_of_sale:/usr/lib/python3/dist-packages/odoo/addons/point_of_sale
       - ../../../itprojects/odoo-11.0/odoo/addons/stock:/usr/lib/python3/dist-packages/odoo/addons/stock
       - ../../../itprojects/odoo-11.0/odoo/addons/product:/usr/lib/python3/dist-packages/odoo/addons/product

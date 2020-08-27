@@ -12,20 +12,13 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
-      - ../../../itprojects/odoo-11.0/mail-addons:/mnt/1
-      - ../../../itprojects/odoo-11.0/misc-addons:/mnt/2
-      - ../../../itprojects/odoo-11.0/website-addons:/mnt/3
-      - ../../../itprojects/odoo-11.0/website:/mnt/4
-      - ../../../itprojects/odoo-11.0/access-addons:/mnt/5
-      - ../../../itprojects/odoo-11.0/pos-addons:/mnt/6
-      - ../../../itprojects/odoo-11.0/odoo/addons/point_of_sale:/usr/lib/python3/dist-packages/odoo/addons/point_of_sale
-      - ../../../itprojects/odoo-11.0/odoo/addons/stock:/usr/lib/python3/dist-packages/odoo/addons/stock
-      - ../../../itprojects/odoo-11.0/odoo/addons/product:/usr/lib/python3/dist-packages/odoo/addons/product
-      - ../../../itprojects/odoo-11.0/odoo/addons/base_import:/usr/lib/python3/dist-packages/odoo/addons/base_import
+      - ../../../lab/shared-11:/mnt/1
+      - ../../../lab/lab-11/addons:/mnt/2
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
 #    command: ['-d', '--log-handler=odoo.addons.queue_job:DEBUG', '--workers=3']
+#    command: bash -c "/entrypoint.sh odoo --dev=xml"
     command: []
 
   db:

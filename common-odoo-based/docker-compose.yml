@@ -18,8 +18,8 @@ services:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
 #    command: ['-d', '--log-handler=odoo.addons.queue_job:DEBUG', '--workers=3']
-#    command: bash -c "/entrypoint.sh odoo --dev=xml"
-    command: []
+    command: bash -c "/entrypoint.sh odoo --dev=xml"
+#    command: []
 
   db:
     image: postgres:10

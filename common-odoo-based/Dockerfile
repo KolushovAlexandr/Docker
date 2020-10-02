@@ -5,7 +5,8 @@ USER root
 RUN apt-get update && \
     apt-get install -y moreutils && \
     apt-get install -y git && \
-    apt-get install -y nano
+    apt-get install -y nano \
+    apt-get install -y procps
 
 RUN mkdir -p /mnt/1 && \
     mkdir -p /mnt/2 && \

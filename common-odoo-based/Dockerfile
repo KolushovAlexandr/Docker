@@ -5,7 +5,7 @@ USER root
 RUN apt-get update && \
     apt-get install -y moreutils && \
     apt-get install -y git && \
-    apt-get install -y nano \
+    apt-get install -y nano && \
     apt-get install -y procps
 
 RUN mkdir -p /mnt/1 && \
@@ -33,12 +33,14 @@ RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocke
 # MISC requirements
 RUN pip3 install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
 
-#LAB
+# LAB
 RUN pip3 install odoo_rpc_client openpyxl dotmap tabulate pika yattag numpy
 
-#PARSER
-
+# PARSER
 RUN pip3 install selenium docxtpl
+
+# VS
+RUN pip3 install watchdog debugpy
 
 # Headless Browser
 RUN curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \

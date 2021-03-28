@@ -1,4 +1,4 @@
-FROM odoo:11.0
+FROM odoo:14.0
 
 USER root
 
@@ -27,11 +27,11 @@ RUN pip3 install wheel
 # Main requirements
 RUN pip3 install wdb zeep websocket
 
-# POS requirements
-RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocket-client
+# # POS requirements
+# RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocket-client
 
-# MISC requirements
-RUN pip3 install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
+# # MISC requirements
+# RUN pip3 install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
 
 # LAB
 RUN pip3 install odoo_rpc_client openpyxl dotmap tabulate pika yattag numpy

@@ -2,7 +2,7 @@ version: '3.4'
 services:
   web:
     tty: true
-    shm_size: 2gb
+    shm_size: 1gb
     privileged: true
     image: my_odoo_14:latest
     depends_on:

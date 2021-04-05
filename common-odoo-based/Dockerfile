@@ -21,7 +21,7 @@ RUN mkdir -p /mnt/1 && \
 RUN chown -R odoo /mnt/
 
 RUN touch /tmp/geckodriver.log
-RUN chown -R 777 /tmp/
+RUN chmod -R a+rwx /tmp/
 
 # Fix some python issues
 RUN pip3 install wheel

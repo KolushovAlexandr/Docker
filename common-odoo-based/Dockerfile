@@ -20,18 +20,15 @@ RUN mkdir -p /mnt/1 && \
 
 RUN chown -R odoo /mnt/
 
+RUN touch /tmp/geckodriver.log
+RUN chown -R 777 /tmp/
+
 # Fix some python issues
 RUN pip3 install wheel
 # RUN python setup.py bdist_wheel
 
 # Main requirements
 RUN pip3 install wdb zeep websocket
-
-# # POS requirements
-# RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocket-client
-
-# # MISC requirements
-# RUN pip3 install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
 
 # LAB
 RUN pip3 install odoo_rpc_client openpyxl dotmap tabulate pika yattag numpy

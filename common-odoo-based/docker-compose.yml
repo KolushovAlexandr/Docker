@@ -11,12 +11,12 @@ services:
     ports:
       - "8069:8069"
       - "8072:8072"
-      - "5678:5678"
+      # - "5678:5678"
       # - "1984:1984"
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
-      - ../../../lab/fsa-parser:/mnt/1
+      - /home/admin/git_reps/fsa-parser:/mnt/1
       # - ../../../odoo/odoo-14.0/odoo/odoo/fields.py:/usr/lib/python3/dist-packages/odoo/fields.py
       # - ../../../odoo/odoo-14.0/odoo/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
       # - ../../../odoo/odoo-14.0/odoo/odoo/api.py:/usr/lib/python3/dist-packages/odoo/api.py

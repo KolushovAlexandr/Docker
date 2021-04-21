@@ -11,4 +11,4 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata_sdb
     volumes:
       # - /home/alex/work/my/docker-files/common-odoo-based/dupl_db/tom/common-odoo-based_odoo-db-data14/_data:/var/lib/postgresql/data/pgdata_sdb
-
+      - /home/admin/volumes/fsad_odoo-db-data14/_data:/var/lib/postgresql/data/pgdata_sdb

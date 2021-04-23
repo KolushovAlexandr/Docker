@@ -14,7 +14,8 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
-      - ../../../lab/lab-14/addons:/mnt/extra-addons
+      # - ../../../lab/lab-14/addons:/mnt/extra-addons
+      - /home/alex/work/lab/lab-14/addons:/mnt/1
       # - ../../../itprojects/odoo-11.0/odoo/odoo/fields.py:/usr/lib/python3/dist-packages/odoo/fields.py
       # - ../../../itprojects/odoo-11.0/odoo/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
       # - ../../../itprojects/odoo-11.0/odoo/odoo/api.py:/usr/lib/python3/dist-packages/odoo/api.py

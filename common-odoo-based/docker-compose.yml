@@ -21,6 +21,7 @@ services:
       # - ../../../itprojects/odoo-11.0/odoo/odoo/api.py:/usr/lib/python3/dist-packages/odoo/api.py
       # - ../../../itprojects/odoo-11.0/odoo/odoo/osv/expression.py:/usr/lib/python3/dist-packages/odoo/osv/expression.py
       - ../../../odoo/odoo-14.0/odoo/addons/base/models/res_users.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py
+      - ../../../odoo/odoo-14.0/odoo/addons/base/models/ir_ui_view.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
@@ -41,7 +42,8 @@ services:
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - odoo-db-data14l:/var/lib/postgresql/data/pgdata
+      - /var/lib/docker/volumes/common-odoo-based_odoo-db-data/_data:/var/lib/postgresql/data/pgdata
+
   wdb:
     image: kozea/wdb:3.3.0
     ports: ['1984:1984']

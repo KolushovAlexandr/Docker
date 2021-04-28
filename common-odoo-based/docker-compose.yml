@@ -22,6 +22,7 @@ services:
       # - ../../../itprojects/odoo-11.0/odoo/odoo/osv/expression.py:/usr/lib/python3/dist-packages/odoo/osv/expression.py
       - ../../../odoo/odoo-14.0/odoo/addons/base/models/res_users.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py
       - ../../../odoo/odoo-14.0/odoo/addons/base/models/ir_ui_view.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py
+      - ../../../odoo/odoo-14.0/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True

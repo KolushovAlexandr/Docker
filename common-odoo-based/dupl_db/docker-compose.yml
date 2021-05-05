@@ -2,6 +2,7 @@ version: '3.4'
 services:
   db:
     image: postgres:10
+    restart: always
     ports:
       - "8002:5432"
     environment:

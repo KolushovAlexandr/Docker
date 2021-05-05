@@ -5,6 +5,7 @@ services:
     shm_size: 1gb
     privileged: true
     image: my_odoo_14:latest
+    restart: always
     depends_on:
       - db
       - wdb
@@ -33,6 +34,7 @@ services:
 
   db:
     image: postgres:10
+    restart: always
     ports:
       - "5432:5432"
     environment:
@@ -43,6 +45,7 @@ services:
     volumes:
       - odoo-db-data14:/var/lib/postgresql/data/pgdata14
   wdb:
+    restart: always
     image: kozea/wdb:3.3.0
     ports: ['1984:1984']
 

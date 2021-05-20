@@ -1,4 +1,4 @@
-FROM odoo:11.0
+FROM odoo:14.0
 
 USER root
 
@@ -24,8 +24,8 @@ RUN chown -R odoo /mnt/
 RUN pip3 install wheel
 # RUN python setup.py bdist_wheel
 
-# # Main requirements
-# RUN pip3 install wdb zeep websocket
+# Main requirements
+RUN pip3 install wdb zeep websocket
 
 # # POS requirements
 # RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocket-client

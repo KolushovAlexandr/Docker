@@ -2,7 +2,7 @@ version: '3.4'
 services:
   web:
     tty: true
-    image: my_odoo_14:latest
+    image: my_odoo_14_new:latest
     depends_on:
       - db
       - wdb

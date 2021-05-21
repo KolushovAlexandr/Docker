@@ -19,6 +19,8 @@ services:
       - ../../../itprojects/odoo-11.0/odoo/odoo/fields.py:/usr/lib/python3/dist-packages/odoo/fields.py
       - ../../../itprojects/odoo-11.0/odoo/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
       - ../../../itprojects/odoo-11.0/odoo/odoo/api.py:/usr/lib/python3/dist-packages/odoo/api.py
+      - ../../../itprojects/odoo-11.0/odoo/odoo/addons/base/res/res_users.py:/usr/lib/python3/dist-packages/odoo/addons/base/res/res_users.py
+      - ../../../itprojects/odoo-11.0/odoo/addons/web/controllers/main.py:/usr/lib/python3/dist-packages/odoo/addons/web/controllers/main.py
       # - ../../../itprojects/odoo-11.0/odoo/odoo/osv/expression.py:/usr/lib/python3/dist-packages/odoo/osv/expression.py
     environment:
       - WDB_SOCKET_SERVER=wdb

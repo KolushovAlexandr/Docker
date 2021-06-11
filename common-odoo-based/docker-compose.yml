@@ -26,6 +26,7 @@ services:
       - ../../../odoo/odoo-14.0/odoo/addons/base/models/ir_ui_menu.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_menu.py
       - ../../../odoo/odoo-14.0/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
       - ../../../odoo/odoo-14.0/odoo/tools/convert.py:/usr/lib/python3/dist-packages/odoo/tools/convert.py
+      - ../../../odoo/odoo-14.0/odoo/osv/expression.py:/usr/lib/python3/dist-packages/odoo/osv/expression.py
       - ../../../odoo/odoo-14.0/odoo/convert.py:/usr/lib/python3/dist-packages/odoo/convert.py
     environment:
       - WDB_SOCKET_SERVER=wdb

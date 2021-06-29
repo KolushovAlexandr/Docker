@@ -17,6 +17,7 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ../../../lab/fsa-parser/addons:/mnt/1
+      - ../../../lab/lab-14/addons:/mnt/2
       # - ../../../odoo/odoo-14.0/odoo/odoo/fields.py:/usr/lib/python3/dist-packages/odoo/fields.py
       # - ../../../odoo/odoo-14.0/odoo/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
       # - ../../../odoo/odoo-14.0/odoo/odoo/api.py:/usr/lib/python3/dist-packages/odoo/api.py

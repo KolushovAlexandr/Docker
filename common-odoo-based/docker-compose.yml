@@ -1,8 +1,11 @@
 version: '3.4'
 services:
   web:
-    tty: true
-    image: my_odoo_14_new:latest
+    # tty: true
+    image: my_odoo_14:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     depends_on:
       - db
       - wdb
@@ -15,18 +18,16 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       # - ../../../lab/lab-14/addons:/mnt/extra-addons
-      - /home/alex/work/lab/lab-14/addons:/mnt/1
-      # - ../../../itprojects/odoo-11.0/odoo/odoo/fields.py:/usr/lib/python3/dist-packages/odoo/fields.py
-      # - ../../../itprojects/odoo-11.0/odoo/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
-      # - ../../../itprojects/odoo-11.0/odoo/odoo/api.py:/usr/lib/python3/dist-packages/odoo/api.py
-      # - ../../../itprojects/odoo-11.0/odoo/odoo/osv/expression.py:/usr/lib/python3/dist-packages/odoo/osv/expression.py
-      - ../../../odoo/odoo-14.0/odoo/addons/base/models/res_users.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py
-      - ../../../odoo/odoo-14.0/odoo/addons/base/models/ir_ui_view.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py
-      - ../../../odoo/odoo-14.0/odoo/addons/base/models/ir_http.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py
-      - ../../../odoo/odoo-14.0/odoo/addons/base/models/ir_ui_menu.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_menu.py
-      - ../../../odoo/odoo-14.0/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
-      - ../../../odoo/odoo-14.0/odoo/tools/convert.py:/usr/lib/python3/dist-packages/odoo/tools/convert.py
-      - ../../../odoo/odoo-14.0/odoo/convert.py:/usr/lib/python3/dist-packages/odoo/convert.py
+      - /home/alex/work/odoo/enterprise-14.0:/mnt/1
+      - /home/alex/work/s2i_odoo/smile2impress:/mnt/2
+      - /home/alex/work/s2i_odoo/S2I-OCA-addons:/mnt/3
+      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/res_users.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py
+      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_ui_view.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py
+      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_http.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py
+      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_ui_menu.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_menu.py
+      # - /home/alex/work/odoo/14.0/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
+      # - /home/alex/work/odoo/14.0/odoo/tools/convert.py:/usr/lib/python3/dist-packages/odoo/tools/convert.py
+      # - /home/alex/work/odoo/14.0/odoo/convert.py:/usr/lib/python3/dist-packages/odoo/convert.py
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
@@ -34,21 +35,21 @@ services:
       # - command: 
     # command: python -m debugpy --listen odoo:5678 --log-to-stderr ./odoo-bin -c /config/odoo.conf --dev=all,xml
     # command: -u ${DC_MODULES_NAME} -d ${DC_DB_NAME} --dev=xml
-    command: bash -c "/entrypoint.sh odoo --dev=all,xml"
+    command: bash -c "/entrypoint.sh odoo --dev=xml"
     # command: python3 -m debugpy --listen web:5678 --log-to-stderr /usr/bin/odoo -c /etc/odoo/odoo.conf --db_host=db --db_port=5432 --db_user=odoo --db_password=odoo --dev=xml
 
   db:
     image: postgres:10
     # image: postgres:9.5
     ports:
-    - "8001:5432"
+    - "5432:5432"
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - /var/lib/docker/volumes/common-odoo-based_odoo-db-data/_data:/var/lib/postgresql/data/pgdata
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
 
   wdb:
     image: kozea/wdb:3.3.0
@@ -56,4 +57,4 @@ services:
 
 volumes:
   odoo-web-data:
-  odoo-db-data14l:
+  odoo-db-data:

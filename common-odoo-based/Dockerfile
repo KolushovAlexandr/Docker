@@ -24,32 +24,34 @@ RUN chown -R odoo /mnt/
 RUN pip3 install wheel
 # RUN python setup.py bdist_wheel
 
-# Main requirements
-RUN pip3 install wdb zeep websocket
-
-# # POS requirements
-# RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocket-client
-
-# # MISC requirements
-# RUN pip3 install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
-
-# # LAB
-# RUN pip3 install odoo_rpc_client openpyxl dotmap tabulate pika yattag numpy
-
-# # PARSER
-# RUN pip3 install selenium docxtpl
-
+RUN pip3 install wdb 
 
 COPY ./requirements.txt /mnt/extra-addons/requirements.txt
 RUN python3 -m pip install -r /mnt/extra-addons/requirements.txt
 
-# VS
-RUN pip3 install watchdog debugpy
+# # Main requirements
+# RUN pip3 install zeep websocket
 
-# Headless Browser
-RUN curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' \
-    && apt-get update \
-    && apt-get install google-chrome-stable -y
+# # # POS requirements
+# # RUN pip3 install wechatpy[cryptography] requests-mock python-alipay-sdk websocket-client
+
+# # # MISC requirements
+# # RUN pip3 install icalendar boto3 pretty_bad_protocol dropbox google-api-python-client
+
+# # # LAB
+# # RUN pip3 install odoo_rpc_client openpyxl dotmap tabulate pika yattag numpy
+
+# # # PARSER
+# # RUN pip3 install selenium docxtpl
+
+
+# # VS
+# RUN pip3 install watchdog debugpy
+
+# # Headless Browser
+# RUN curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+#     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' \
+#     && apt-get update \
+#     && apt-get install google-chrome-stable -y
 
 USER odoo

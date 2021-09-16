@@ -12,11 +12,12 @@ services:
       # - "5678:5678"
       # - "1984:1984"
     volumes:
-      - odoo-web-data:/var/lib/odoo
+      - odoo-web-data1:/var/lib/odoo
       - ./config:/etc/odoo
       # - ../../../lab/lab-14/addons:/mnt/extra-addons
       - /home/alex/work/lab/lab-14/addons:/mnt/1
-      # - ../../../itprojects/odoo-11.0/odoo/odoo/fields.py:/usr/lib/python3/dist-packages/odoo/fields.py
+      - /home/alex/work/lab/aux/addons:/mnt/2 
+     # - ../../../itprojects/odoo-11.0/odoo/odoo/fields.py:/usr/lib/python3/dist-packages/odoo/fields.py
       # - ../../../itprojects/odoo-11.0/odoo/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
       # - ../../../itprojects/odoo-11.0/odoo/odoo/api.py:/usr/lib/python3/dist-packages/odoo/api.py
       # - ../../../itprojects/odoo-11.0/odoo/odoo/osv/expression.py:/usr/lib/python3/dist-packages/odoo/osv/expression.py
@@ -57,5 +58,5 @@ services:
     ports: ['1984:1984']
 
 volumes:
-  odoo-web-data:
+  odoo-web-data1:
   odoo-db-data14l:

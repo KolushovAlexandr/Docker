@@ -16,7 +16,7 @@ services:
       # - "1984:1984"
     volumes:
       - odoo-web-data:/var/lib/odoo
-      - ./config:/etc/odoo
+      - ./config_serv:/etc/odoo
       # - ../../../lab/lab-14/addons:/mnt/extra-addons
       - /root/work/odoo/ent-14.0:/mnt/1
       - /root/work/s2i/smile2impress:/mnt/2

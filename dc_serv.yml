@@ -18,16 +18,16 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       # - ../../../lab/lab-14/addons:/mnt/extra-addons
-      - /home/alex/work/odoo/enterprise-14.0:/mnt/1
-      - /home/alex/work/s2i/smile2impress:/mnt/2
-      - /home/alex/work/s2i/S2I-OCA-addons:/mnt/3
-      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/res_users.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py
-      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_ui_view.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py
-      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_http.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py
-      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_ui_menu.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_menu.py
-      # - /home/alex/work/odoo/14.0/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
-      # - /home/alex/work/odoo/14.0/odoo/tools/convert.py:/usr/lib/python3/dist-packages/odoo/tools/convert.py
-      # - /home/alex/work/odoo/14.0/odoo/convert.py:/usr/lib/python3/dist-packages/odoo/convert.py
+      - /root/work/odoo/ent-14.0:/mnt/1
+      - /root/work/s2i/smile2impress:/mnt/2
+      - /root/work/s2i/S2I-OCA-addons:/mnt/3
+      # - /root/work/odoo/14.0/odoo/addons/base/models/res_users.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py
+      # - /root/work/odoo/14.0/odoo/addons/base/models/ir_ui_view.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py
+      # - /root/work/odoo/14.0/odoo/addons/base/models/ir_http.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py
+      # - /root/work/odoo/14.0/odoo/addons/base/models/ir_ui_menu.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_menu.py
+      # - /root/work/odoo/14.0/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
+      # - /root/work/odoo/14.0/odoo/tools/convert.py:/usr/lib/python3/dist-packages/odoo/tools/convert.py
+      # - /root/work/odoo/14.0/odoo/convert.py:/usr/lib/python3/dist-packages/odoo/convert.py
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
@@ -40,7 +40,6 @@ services:
 
   db:
     image: postgres:10
-    # image: postgres:9.5
     ports:
     - "5432:5432"
     environment:

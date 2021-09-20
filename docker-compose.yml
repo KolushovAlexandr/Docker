@@ -8,7 +8,6 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - db
-      - wdb
     ports:
       - "8069:8069"
       - "8072:8072"

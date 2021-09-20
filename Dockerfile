@@ -29,6 +29,9 @@ RUN pip3 install wdb
 COPY ./requirements.txt /mnt/extra-addons/requirements.txt
 RUN python3 -m pip install -r /mnt/extra-addons/requirements.txt
 
+RUN pip3 install --upgrade pip
+RUN pip3 install pyOpenSSL
+
 # # Main requirements
 # RUN pip3 install zeep websocket
 

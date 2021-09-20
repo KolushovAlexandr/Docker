@@ -21,10 +21,13 @@ services:
       - /home/alex/work/odoo/enterprise-14.0:/mnt/1
       - /home/alex/work/s2i/smile2impress:/mnt/2
       - /home/alex/work/s2i/S2I-OCA-addons:/mnt/3
+      - /home/alex/work/oca/bank-statement-import:/mnt/4
+      - /home/alex/work/oca/l10n-spain:/mnt/5
       # - /home/alex/work/odoo/14.0/odoo/addons/base/models/res_users.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py
       # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_ui_view.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py
       # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_http.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py
       # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_ui_menu.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_menu.py
+      - /home/alex/work/odoo/14.0/odoo/fields.py:/usr/lib/python3/dist-packages/odoo/fields.py
       # - /home/alex/work/odoo/14.0/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
       # - /home/alex/work/odoo/14.0/odoo/tools/convert.py:/usr/lib/python3/dist-packages/odoo/tools/convert.py
       # - /home/alex/work/odoo/14.0/odoo/convert.py:/usr/lib/python3/dist-packages/odoo/convert.py

@@ -16,7 +16,15 @@ RUN mkdir -p /mnt/1 && \
     mkdir -p /mnt/6 && \
     mkdir -p /mnt/7 && \
     mkdir -p /mnt/8 && \
-    mkdir -p /mnt/9
+    mkdir -p /mnt/9 && \
+    mkdir -p /mnt/10 && \
+    mkdir -p /mnt/11 && \
+    mkdir -p /mnt/12 && \
+    mkdir -p /mnt/13 && \
+    mkdir -p /mnt/14 && \
+    mkdir -p /mnt/15 && \
+    mkdir -p /mnt/16 && \
+    mkdir -p /mnt/17
 
 RUN chown -R odoo /mnt/
 

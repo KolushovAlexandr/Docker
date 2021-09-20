@@ -16,11 +16,21 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
-      - /root/repos/enterprise-14.0:/mnt/1
-      - /root/repos/smile2impress:/mnt/2
-      - /root/repos/S2I-OCA-addons:/mnt/3
-      - /root/repos/bank-statement-import:/mnt/4
-      - /root/repos/l10n-spain:/mnt/5
+      - /root/repos/enterprise-14.0:/mnt/13
+      - /root/repos/smile2impress:/mnt/14
+      - /root/repos/S2I-OCA-addons:/mnt/15
+      - /root/repos/account-financial-reporting:/mnt/1
+      - /root/repos/account-financial-tools:/mnt/2
+      - /root/repos/account-invoicing:/mnt/3
+      - /root/repos/bank-payment:/mnt/4
+      - /root/repos/bank-statement-import:/mnt/5
+      - /root/repos/community-data-files:/mnt/6
+      - /root/repos/intrastat-extrastat:/mnt/7
+      - /root/repos/l10n-spain:/mnt/8
+      - /root/repos/partner-contact:/mnt/9
+      - /root/repos/queue:/mnt/10
+      - /root/repos/reporting-engine:/mnt/11
+      - /root/repos/server-ux:/mnt/12
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True

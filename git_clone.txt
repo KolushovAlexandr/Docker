@@ -1,0 +1,27 @@
+
+git clone git@github.com:OCA/account-financial-reporting.git
+git clone git@github.com:OCA/account-financial-tools.git
+git clone git@github.com:OCA/account-invoicing.git
+git clone git@github.com:OCA/bank-payment.git
+git clone git@github.com:OCA/bank-statement-import.git
+git clone git@github.com:OCA/community-data-files.git
+git clone git@github.com:OCA/intrastat-extrastat.git
+git clone git@github.com:OCA/l10n-spain.git
+git clone git@github.com:OCA/partner-contact.git
+git clone git@github.com:OCA/queue.git
+git clone git@github.com:OCA/reporting-engine.git
+git clone git@github.com:OCA/server-ux.git
+
+
+- /root/repos/account-financial-reporting:/mnt/1
+- /root/repos/account-financial-tools:/mnt/2
+- /root/repos/account-invoicing:/mnt/3
+- /root/repos/bank-payment:/mnt/4
+- /root/repos/bank-statement-import:/mnt/5
+- /root/repos/community-data-files:/mnt/6
+- /root/repos/intrastat-extrastat:/mnt/7
+- /root/repos/l10n-spain:/mnt/8
+- /root/repos/partner-contact:/mnt/9
+- /root/repos/queue:/mnt/10
+- /root/repos/reporting-engine:/mnt/11
+- /root/repos/server-ux:/mnt/12

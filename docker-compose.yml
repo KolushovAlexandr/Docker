@@ -17,33 +17,18 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
-      # - ../../../lab/lab-14/addons:/mnt/extra-addons
-      - /home/alex/work/odoo/enterprise-14.0:/mnt/1
-      - /home/alex/work/s2i/smile2impress:/mnt/2
-      - /home/alex/work/s2i/S2I-OCA-addons:/mnt/3
-      - /home/alex/work/oca/bank-statement-import:/mnt/4
-      - /home/alex/work/oca/l10n-spain:/mnt/5
-      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/res_users.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py
-      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_ui_view.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py
-      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_http.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py
-      # - /home/alex/work/odoo/14.0/odoo/addons/base/models/ir_ui_menu.py:/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_menu.py
-      - /home/alex/work/odoo/14.0/odoo/fields.py:/usr/lib/python3/dist-packages/odoo/fields.py
-      # - /home/alex/work/odoo/14.0/odoo/models.py:/usr/lib/python3/dist-packages/odoo/models.py
-      # - /home/alex/work/odoo/14.0/odoo/tools/convert.py:/usr/lib/python3/dist-packages/odoo/tools/convert.py
-      # - /home/alex/work/odoo/14.0/odoo/convert.py:/usr/lib/python3/dist-packages/odoo/convert.py
+      - /root/repos/enterprise-14.0:/mnt/1
+      - /root/repos/smile2impress:/mnt/2
+      - /root/repos/S2I-OCA-addons:/mnt/3
+      - /root/repos/bank-statement-import:/mnt/4
+      - /root/repos/l10n-spain:/mnt/5
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
-    #    command: ['-d', '--log-handler=odoo.addons.queue_job:DEBUG', '--workers=3']
-      # - command: 
-    # command: python -m debugpy --listen odoo:5678 --log-to-stderr ./odoo-bin -c /config/odoo.conf --dev=all,xml
-    # command: -u ${DC_MODULES_NAME} -d ${DC_DB_NAME} --dev=xml
     command: bash -c "/entrypoint.sh odoo --dev=xml"
-    # command: python3 -m debugpy --listen web:5678 --log-to-stderr /usr/bin/odoo -c /etc/odoo/odoo.conf --db_host=db --db_port=5432 --db_user=odoo --db_password=odoo --dev=xml
 
   db:
     image: postgres:10
-    # image: postgres:9.5
     ports:
     - "5432:5432"
     environment:
@@ -53,10 +38,6 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
-
-  wdb:
-    image: kozea/wdb:3.3.0
-    ports: ['1984:1984']
 
 volumes:
   odoo-web-data:

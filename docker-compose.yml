@@ -34,7 +34,7 @@ services:
     environment:
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
-    command: bash -c "/entrypoint.sh odoo --dev=xml"
+#    command: odoo -u all -d test_prod
 
   db:
     image: postgres:10

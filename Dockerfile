@@ -40,6 +40,9 @@ RUN python3 -m pip install -r /mnt/extra-addons/requirements.txt
 RUN pip3 install --upgrade pip
 RUN pip3 install pyOpenSSL
 
+# for some reason is needed
+RUN pip3 install openupgradelib
+
 # # Main requirements
 # RUN pip3 install zeep websocket
 
